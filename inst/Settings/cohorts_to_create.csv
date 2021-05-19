@@ -1,0 +1,23 @@
+cohortId,cohortName,cohortDefinition,cohortType,atlasId
+1,Asthma,ATLAS,target,614
+2,COPD,ATLAS,target,618
+3,AsthmaCOPD,ATLAS,target,617
+4,Asthma6plus,ATLAS,target,616
+5,Asthma6min,ATLAS,target,615
+10,Anti IgE,Custom,event,
+11,Anti IL5(R),Custom,event,
+12,Anti IL4R,Custom,event,
+13,LAMA,Custom,event,
+14,SAMA,Custom,event,
+15,Systemic B2 agonist,Custom,event,
+16,LABA,Custom,event,
+17,LTRA,Custom,event,
+18,Xanthines,Custom,event,
+19,SABA,Custom,event,
+20,ICS,Custom,event,
+21,Systemic glucocorticoids,Custom,event,
+22,PDE4,Custom,event,
+23,LABA&ICS,Custom,event,
+24,LABA&LAMA,Custom,event,
+25,LABA&LAMA&ICS,Custom,event,
+26,SABA&SAMA,Custom,event,

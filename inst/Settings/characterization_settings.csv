@@ -1,0 +1,20 @@
+covariate_name,covariate_id,concept_set
+Male,8507001,
+Age,1002,
+Charlson comorbidity index score,1901,
+Atopic disorders,133834209,
+Gastroesophageal reflux disease,Custom,"318800,765110,4046097,4076267,4144111,4159148,4159156,36687117,36712768,36712969,36713492,36713493,42535063"
+Diabetes mellitus,201820209,
+Obesity,433736209,
+Chronic rhinosinusitis,Custom,"132932,134661,134668,139841,257012,259848,761761,761762,765276,4048184,4048185,4051475,4051486,4051487,4051488,4110027,4110489,4110490,4112365,4112367,4112497,4112498,4112529,4145495,4173466,4179673,4181738,4230641,4247588,4288156,4316066,4316067,4322228"
+Nasal polyposis,42537251209
+Anxiety,441542209,
+Depressive disorder,440383209,
+Hypertensive disorder,316866209,
+Heartfailure,316139209,
+Ischemic heart disease,4185932209,
+Lower respiratory tract infections (previous year),4175297210,
+Inflammatory disorder of lower respiratory tract (previous year), 4028876210,
+Cerebrovascular disease,381591209,
+Allergic rhinitis,257007209,
+Smoking,Custom,

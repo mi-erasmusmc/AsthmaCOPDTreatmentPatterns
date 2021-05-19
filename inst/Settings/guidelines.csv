@@ -1,0 +1,129 @@
+targetCohortIds,from,to,group
+"1,4,5",SABA,SABA+SAMA,step_up
+"1,4,5",SABA,ICS+SABA,step_up
+"1,4,5",SABA,ICS,step_up
+"1,4,5",SABA,LTRA,step_up
+"1,4,5",SAMA,SABA+SAMA,step_up
+"1,4,5",SAMA,ICS+SABA,step_up
+"1,4,5",SAMA,ICS,step_up
+"1,4,5",SAMA,LTRA,step_up
+"1,4,5",ICS,ICS+LABA,step_up
+"1,4,5",ICS,ICS+LAMA,step_up
+"1,4,5",ICS,ICS+LTRA,step_up
+"1,4,5",ICS+LABA,ICS+LABA+LAMA,step_up
+"1,4,5",ICS+LABA,ICS+LABA+Systemic glucocorticoids (therapy),step_up
+"1,4,5",ICS+LABA,Anti IgE+ICS+LABA,step_up
+"1,4,5",ICS+LABA,Anti IL5(R)+ICS+LABA,step_up
+"1,4,5",ICS+LABA,Anti IL4R+ICS+LABA,step_up
+"1,4,5",ICS+LTRA,ICS+LABA+LAMA,step_up
+"1,4,5",ICS+LTRA,ICS+LABA+LAMA,step_up
+"1,4,5",ICS+LTRA,ICS+LABA+Systemic glucocorticoids (therapy),step_up
+"1,4,5",ICS+LTRA,Anti IgE+ICS+LABA,step_up
+"1,4,5",ICS+LTRA,Anti IL5(R)+ICS+LABA,step_up
+"1,4,5",ICS+LTRA,Anti IL4R+ICS+LABA,step_up
+"1,4,5",SABA,SAMA,switching
+"1,4,5",SAMA,SABA,switching
+"1,4,5",ICS,LTRA,switching
+"1,4,5",LTRA,ICS,switching
+"1,4,5",ICS+LABA,ICS+LTRA,switching
+"1,4,5",ICS+LTRA,ICS+LABA,switching
+"1,4,5",ICS+LABA,ICS+LAMA,switching
+"1,4,5",ICS+LAMA,ICS+LABA,switching
+"1,4,5",ICS+LABA+LAMA,ICS+LABA+Systemic glucocorticoids (therapy),switching
+"1,4,5",ICS+LABA+LAMA,Anti IgE+ICS+LABA,switching
+"1,4,5",ICS+LABA+LAMA,Anti IL5(R)+ICS+LABA,switching
+"1,4,5",ICS+LABA+LAMA,Anti IL4R+ICS+LABA,switching
+"1,4,5",ICS+LABA+Systemic glucocorticoids (therapy),ICS+LABA+LAMA,switching
+"1,4,5",ICS+LABA+Systemic glucocorticoids (therapy),Anti IgE+ICS+LABA,switching
+"1,4,5",ICS+LABA+Systemic glucocorticoids (therapy),Anti IL5(R)+ICS+LABA,switching
+"1,4,5",ICS+LABA+Systemic glucocorticoids (therapy),Anti IL4R+ICS+LABA,switching
+"1,4,5",Anti IgE+ICS+LABA,ICS+LABA+Systemic glucocorticoids (therapy),switching
+"1,4,5",Anti IgE+ICS+LABA,Anti IL5(R)+ICS+LABA,switching
+"1,4,5",Anti IgE+ICS+LABA,Anti IL4R+ICS+LABA,switching
+"1,4,5",Anti IL5(R)+ICS+LABA,ICS+LABA+LAMA,switching
+"1,4,5",Anti IL5(R)+ICS+LABA,Anti IgE+ICS+LABA,switching
+"1,4,5",Anti IL5(R)+ICS+LABA,Anti IL4R+ICS+LABA,switching
+"1,4,5",Anti IL4R+ICS+LABA,ICS+LABA+Systemic glucocorticoids (therapy),switching
+"1,4,5",Anti IL4R+ICS+LABA,ICS+LABA+LAMA,switching
+"1,4,5",Anti IL4R+ICS+LABA,Anti IgE+ICS+LABA,switching
+"1,4,5",Anti IL4R+ICS+LABA,Anti IL5(R)+ICS+LABA,switching
+"1,4,5",SABA+SAMA,SABA,step_down
+"1,4,5",ICS+SABA,SABA,step_down
+"1,4,5",ICS,SABA,step_down
+"1,4,5",LTRA,SABA,step_down
+"1,4,5",SABA+SAMA,SAMA,step_down
+"1,4,5",ICS+SABA,SAMA,step_down
+"1,4,5",ICS,SAMA,step_down
+"1,4,5",LTRA,SAMA,step_down
+"1,4,5",ICS+LABA,ICS,step_down
+"1,4,5",ICS+LAMA,ICS,step_down
+"1,4,5",ICS+LTRA,ICS,step_down
+"1,4,5",ICS+LABA+LAMA,ICS+LABA,step_down
+"1,4,5",ICS+LABA+Systemic glucocorticoids (therapy),ICS+LABA,step_down
+"1,4,5",Anti IgE+ICS+LABA,ICS+LABA,step_down
+"1,4,5",Anti IL5(R)+ICS+LABA,ICS+LABA,step_down
+"1,4,5",Anti IL4R+ICS+LABA,ICS+LABA,step_down
+"1,4,5",ICS+LABA+LAMA,ICS+LTRA,step_down
+"1,4,5",ICS+LABA+LAMA,ICS+LTRA,step_down
+"1,4,5",ICS+LABA+Systemic glucocorticoids (therapy),ICS+LTRA,step_down
+"1,4,5",Anti IgE+ICS+LABA,ICS+LTRA,step_down
+"1,4,5",Anti IL5(R)+ICS+LABA,ICS+LTRA,step_down
+"1,4,5",Anti IL4R+ICS+LABA,ICS+LTRA,step_down
+"2",SABA,SABA+SAMA,step_up
+"2",SABA,LABA,step_up
+"2",SABA,LAMA,step_up
+"2",SABA,Xanthines,step_up
+"2",SAMA,SABA+SAMA,step_up
+"2",SAMA,LABA,step_up
+"2",SAMA,LAMA,step_up
+"2",SAMA,Xanthines,step_up
+"2",LABA,LABA+LAMA,step_up
+"2",LABA,ICS+LABA,step_up
+"2",LABA,ICS+LAMA,step_up
+"2",LAMA,LABA+LAMA,step_up
+"2",LAMA,ICS+LABA,step_up
+"2",LAMA,ICS+LAMA,step_up
+"2",Xanthines,LABA+LAMA,step_up
+"2",Xanthines,ICS+LABA,step_up
+"2",Xanthines,ICS+LAMA,step_up
+"2",LABA+LAMA,ICS+LABA+LAMA,step_up
+"2",ICS+LABA,ICS+LABA+LAMA,step_up
+"2",ICS+LABA,ICS+LABA+PDE4,step_up
+"2",ICS+LAMA,ICS+LABA+LAMA,step_up
+"2",SABA,SAMA,switching
+"2",SAMA,SABA,switching
+"2",LABA,LAMA,switching
+"2",LABA,Xanthines,switching
+"2",LAMA,LABA,switching
+"2",LAMA,Xanthines,switching
+"2",Xanthines,LABA,switching
+"2",Xanthines,LAMA,switching
+"2",LABA+LAMA,ICS+LABA,switching
+"2",LABA+LAMA,ICS+LAMA,switching
+"2",ICS+LABA,LABA+LAMA,switching
+"2",ICS+LABA,ICS+LAMA,switching
+"2",ICS+LAMA,LABA+LAMA,switching
+"2",ICS+LAMA,ICS+LABA,switching
+"2",ICS+LABA+LAMA,ICS+LABA+PDE4,switching
+"2",ICS+LABA+PDE4,ICS+LABA+LAMA,switching
+"2",SABA+SAMA,SABA,step_down
+"2",LABA,SABA,step_down
+"2",LAMA,SABA,step_down
+"2",Xanthines,SABA,step_down
+"2",SABA+SAMA,SAMA,step_down
+"2",LABA,SAMA,step_down
+"2",LAMA,SAMA,step_down
+"2",Xanthines,SAMA,step_down
+"2",LABA+LAMA,LABA,step_down
+"2",ICS+LABA,LABA,step_down
+"2",ICS+LAMA,LABA,step_down
+"2",LABA+LAMA,LAMA,step_down
+"2",ICS+LABA,LAMA,step_down
+"2",ICS+LAMA,LAMA,step_down
+"2",LABA+LAMA,Xanthines,step_down
+"2",ICS+LABA,Xanthines,step_down
+"2",ICS+LAMA,Xanthines,step_down
+"2",ICS+LABA+LAMA,LABA+LAMA,step_down
+"2",ICS+LABA+LAMA,ICS+LABA,step_down
+"2",ICS+LABA+PDE4,ICS+LABA,step_down
+"2",ICS+LABA+LAMA,ICS+LAMA,step_down

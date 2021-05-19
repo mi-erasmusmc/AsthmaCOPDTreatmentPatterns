@@ -1,0 +1,16 @@
+param,analysis0,analysis1,analysis2,analysis3,analysis4,analysis5,analysis6,analysis7,analysis8,analysis9,analysis10, analysis11, analysis12, analysis13, analysis14
+studyName,comparisonATLAS,asthma,copd,aco,asthma6plus,asthma6min,asthma_durationera,copd_durationera,aco_durationera, asthma_inhaler, copd_inhaler, aco_inhaler, asthma_treatmentsprior, copd_treatmentsprior, aco_treatmentsprior 
+targetCohortId,1,1,2,3,4,5,1,2,3,1,2,3, 1,2,3
+eventCohortIds,"10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26","10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26","10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26","10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26","10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26","10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26","10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26", "10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26", "10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26", "13,14,16,19,20,23,24,25,26","13,14,16,19,20,23,24,25,26","13,14,16,19,20,23,24,25,26", "10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26", "10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26", "10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26"
+includeTreatmentsPriorToIndex,0,0,0,0,0,0,0,0,0,0,0,0,30,30,30
+minEraDuration,0,5,5,5,5,5,1,1,1,5,5,5, 5,5,5
+splitEventCohorts,"","21","21","21","21","21","21","21","21","21","21","21","21","21","21"
+eraCollapseSize,0,30,30,30,30,30,30,30,30,30,30,30,30,30,30
+combinationWindow,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30
+minStepDuration,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30
+filterTreatments,First,Changes,Changes,Changes,Changes,Changes,Changes,Changes,Changes,Changes,Changes,Changes,Changes,Changes,Changes
+maxPathLength,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+minCellCount,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+minCellMethod,Remove,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust,Adjust
+groupCombinations,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+addNoPaths,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
