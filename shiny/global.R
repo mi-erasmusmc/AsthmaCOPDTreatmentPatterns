@@ -27,14 +27,17 @@ all_populations <- list("Asthma > 18"= "asthma",
                         "Asthma 6-17" = "asthma6plus",
                         "Asthma < 5" = "asthma6min")
 
-included_databases <- list("IPCI" = "IPCI"#,
-                           #"CPRD" = "CPRD",
+included_databases <- list.dirs(paste0(local, "output/"), recursive = FALSE, full.names = FALSE) 
+names(included_databases) <- included_databases
+included_databases <- as.list(included_databases)
+
+# included_databases <- list("IPCI" = "IPCI",
+                           # "CPRD" = "CPRD",
                            # "CCAE" = "ccae",
                            # "MDCD" = "mdcd",
                            # "MDCR" = "mdcr"
-                           #"AUSOM" = "AUSOM",
-                           #"EHIF" = "Asthma"
-                           )
+                           # "AUSOM" = "AUSOM",
+                           # "EHIF" = "database")
 
 layers <- list("First-line treatment" = 1,
                "Second-line treatment" = 2,
