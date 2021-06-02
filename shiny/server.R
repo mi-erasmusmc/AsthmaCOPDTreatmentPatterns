@@ -136,11 +136,15 @@ server <- function(input, output, session) {
     
     result <- list()
     
-    inhalation <- ""
-    if (input$inhalation2 == "Yes") {
-      inhalation <- "_inhaler"
-    } 
-    
+    analysis <- ""
+    if (input$analysis2 == "Sensitivity inhalation only") {
+      analysis <- "_inhaler"
+    } else if (input$analysis2 == "Sensitivity duration") {
+      analysis <- "_durationera"
+    } else if (input$analysis2 == "Sensitivity treatments prior") {
+      analysis <- "_treatmentsprior"
+    }
+  
     if (input$viewer2 == "Compare databases") {
       
       for(i in 1:ceiling(length(input$dataset2)/n_cols)) { 
@@ -148,9 +152,9 @@ server <- function(input, output, session) {
         
         for(j in (1+n_cols*(i-1)):min(i*n_cols, length(input$dataset2))) {
           
-          info <- summary_counts[[input$dataset2[[j]]]][[paste0(input$population2, inhalation)]]
+          info <- summary_counts[[input$dataset2[[j]]]][[paste0(input$population2, analysis)]]
           title_plot <- paste0(names(which(included_databases == input$dataset2[[j]])), " (N = ", info$number_target[info$year == input$year2], " , Treated % = ", info$perc[info$year == input$year2], ")")
-          plot_location <- paste0("workingdirectory/output/", input$dataset2[[j]], "/", input$population2, inhalation,"/sunburst_", input$dataset2[[j]], "_",input$population2, inhalation, "_" ,input$year2,".html")
+          plot_location <- paste0("workingdirectory/output/", input$dataset2[[j]], "/", input$population2, analysis,"/sunburst_", input$dataset2[[j]], "_",input$population2, analysis, "_" ,input$year2,".html")
          
           cols_ <- append(cols_,list(column(width = floor(8/n_cols), offset = 0, tagList(tags$h4(title_plot), tags$iframe(seamless="seamless", src=plot_location, width=400, height=400, scrolling = "no", frameborder = "no")))));
         }
@@ -164,9 +168,9 @@ server <- function(input, output, session) {
         cols_ <- list();
         for(j in (1+n_cols*(i-1)):min(i*n_cols, length(input$population2))) {
           
-          info <- summary_counts[[input$dataset2]][[paste0(input$population2[[j]], inhalation)]]
+          info <- summary_counts[[input$dataset2]][[paste0(input$population2[[j]], analysis)]]
           title_plot <- paste0(names(which(all_populations == input$population2[[j]])), " (N = ", info$number_target[info$year == input$year2], " , Treated % = ", info$perc[info$year == input$year2], ")")
-          plot_location <- paste0("workingdirectory/output/",input$dataset2 ,"/",input$population2[[j]], inhalation, "/sunburst_", input$dataset2, "_",input$population2[[j]], inhalation, "_" ,input$year2,".html")
+          plot_location <- paste0("workingdirectory/output/",input$dataset2 ,"/",input$population2[[j]], analysis, "/sunburst_", input$dataset2, "_",input$population2[[j]], analysis, "_" ,input$year2,".html")
           
           cols_ <- append(cols_,list(column(width = floor(8/n_cols), offset = 0, tagList(tags$h4(title_plot), tags$iframe(seamless="seamless", src=plot_location, width=400, height=400, scrolling = "no", frameborder = "no")))));
         }
@@ -180,9 +184,9 @@ server <- function(input, output, session) {
         cols_ <- list();
         for(j in (1+n_cols*(i-1)):min(i*n_cols, length(input$year2))) {
           
-          info <- summary_counts[[input$dataset2]][[paste0(input$population2, inhalation)]]
+          info <- summary_counts[[input$dataset2]][[paste0(input$population2, analysis)]]
           title_plot <- paste0(names(which(all_years == input$year2[[j]])), " (N = ", info$number_target[info$year == input$year2[[j]]], " , Treated % = ", info$perc[info$year == input$year2[[j]]], ")")
-          plot_location <- paste0("workingdirectory/output/",input$dataset2, "/", input$population2, inhalation, "/sunburst_", input$dataset2, "_",input$population2, inhalation, "_" ,input$year2[[j]],".html")
+          plot_location <- paste0("workingdirectory/output/",input$dataset2, "/", input$population2, analysis, "/sunburst_", input$dataset2, "_",input$population2, analysis, "_" ,input$year2[[j]],".html")
           
           cols_ <- append(cols_,list(column(width = floor(8/n_cols), offset = 0, tagList(tags$h4(title_plot), tags$iframe(seamless="seamless", src=plot_location, width=400, height=400, scrolling = "no", frameborder = "no")))));
         }
@@ -202,14 +206,18 @@ server <- function(input, output, session) {
   # Sankey diagram tab
   output$sankeydiagram <- renderUI({
     
-    inhalation <- ""
-    if (input$inhalation2 == "Yes") {
-      inhalation <- "_inhaler"
-    } 
+    analysis <- ""
+    if (input$analysis2 == "Sensitivity inhalation only") {
+      analysis <- "_inhaler"
+    } else if (input$analysis2 == "Sensitivity duration") {
+      analysis <- "_durationera"
+    } else if (input$analysis2 == "Sensitivity treatments prior") {
+      analysis <- "_treatmentsprior"
+    }
     
-    info <- summary_counts[[input$dataset34]][[paste0(input$population345, inhalation)]]
+    info <- summary_counts[[input$dataset34]][[paste0(input$population345, analysis)]]
     title_plot <- paste0(names(which(included_databases == input$dataset34)), " (N = ", info$number_target[info$year == "all"], " , Treated % = ", info$perc[info$year == "all"], ")")
-    plot_location <- paste0("workingdirectory/output/", input$dataset34, "/",input$population345, inhalation, "/sankeydiagram_", input$dataset34, "_",input$population345, inhalation, "_all.html")
+    plot_location <- paste0("workingdirectory/output/", input$dataset34, "/",input$population345, analysis, "/sankeydiagram_", input$dataset34, "_",input$population345, analysis, "_all.html")
     plot <- tagList(tags$h4(title_plot), tags$iframe(seamless="seamless", src=plot_location, width=800, height=800, scrolling = "no", frameborder = "no"))
     
     return(plot)

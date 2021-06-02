@@ -55,7 +55,7 @@ ui <- dashboardPage(
       ),
       conditionalPanel(
         condition = "input.tabs=='pathways' || input.tabs=='sankeydiagram'",
-        selectInput("inhalation2", label = "Show only inhalation", choices = c("Yes", "No"), selected = "No")
+        selectInput("analysis2", label = "Analysis", choices = c("Main analysis", "Sensitivity inhalation only", "Sensitivity duration", "Sensitivity treatments prior"), selected = "Main analysis")
       ),
       conditionalPanel(
         condition = "input.tabs=='summarypathway'",
