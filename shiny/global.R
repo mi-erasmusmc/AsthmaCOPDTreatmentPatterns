@@ -7,6 +7,10 @@ library(data.table)
 library(DT)
 
 # Set working directory (shiny folder)
+if (!grepl("shiny$", getwd())) {
+  setwd(paste0(getwd(), "/shiny"))
+}
+
 local <- paste0(getwd(), "/")
 addResourcePath("workingdirectory", getwd())
 
