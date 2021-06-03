@@ -152,7 +152,7 @@ createCohorts <- function(connection,
   write.csv(counts, file.path(outputFolder, "cohort_counts.csv"), row.names = FALSE)
   
   # Check if all target cohorts have non-zero count
-  checkCohorts <- setdiff(cohortsToCreate$cohortId,counts$cohortDefinitionId)
+  checkCohorts <- setdiff(cohortsToCreate$cohortId,counts$cohortId)
   
   if(length(checkCohorts) != 0) {
     warning(paste0("Cohort definition ", paste0(checkCohorts, collapse = ","), " has zero count. "))
