@@ -13,9 +13,12 @@ This study will describe the treatment pathways of patients diagnosed with asthm
 If you like to execute this study package against an OMOP-CDM follow these instructions:
 
 1. Download and open the R package using RStudio. 
-2. Build the package (packages required are listed in DESCRIPTION file).
-3. In extras -> CodeToRun.R: specify connection details. 
-4. To execute the study run code in CodeToRun.R. 
-5. The results are located in '~/shiny/output'.
-6. Run the Shiny App for an interactive visualization of the results.
-7. Share the results in the automatically generated zip folder.
+2. Load the renv project environment to ensure that you have all required R packages.
+- To run study package in environment with internet: run renv::restore() in the console.
+- To run study package in environment without internet: first open the R package using RStudio on a computer with internet. Specify the folder where your packages are stored by setting the RENV_PATHS_CACHE location (run Sys.setenv("RENV_PATHS_CACHE"=paste0(getwd(),"/renv/cache"))). Then run renv::restore() in the console. Manually move the study package to the environment without internet (this now includes all required R packages) and again run Sys.setenv("RENV_PATHS_CACHE"=paste0(getwd(),"/renv/cache")) followed by renv::restore() in the console.
+3. Build the package (packages required are listed in DESCRIPTION file).
+4. In extras -> CodeToRun.R: specify connection details. 
+5. To execute the study run code in CodeToRun.R. 
+6. The results are located in '~/shiny/output'.
+7. Run the Shiny App for an interactive visualization of the results.
+8. Share the results in the automatically generated zip folder.
