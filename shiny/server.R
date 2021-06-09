@@ -153,7 +153,7 @@ server <- function(input, output, session) {
         for(j in (1+n_cols*(i-1)):min(i*n_cols, length(input$dataset2))) {
           
           info <- summary_counts[[input$dataset2[[j]]]][[paste0(input$population2, analysis)]]
-          title_plot <- paste0(names(which(included_databases == input$dataset2[[j]])), " (N = ", info$number_target[info$year == input$year2], " , Treated % = ", info$perc[info$year == input$year2], ")")
+          title_plot <- paste0(names(which(included_databases == input$dataset2[[j]])), " (N = ", info$number_target[info$year == input$year2], ", Treated % = ", info$perc[info$year == input$year2], ")")
           plot_location <- paste0("workingdirectory/output/", input$dataset2[[j]], "/", input$population2, analysis,"/sunburst_", input$dataset2[[j]], "_",input$population2, analysis, "_" ,input$year2,".html")
          
           cols_ <- append(cols_,list(column(width = floor(8/n_cols), offset = 0, tagList(tags$h4(title_plot), tags$iframe(seamless="seamless", src=plot_location, width=400, height=400, scrolling = "no", frameborder = "no")))));
@@ -169,7 +169,7 @@ server <- function(input, output, session) {
         for(j in (1+n_cols*(i-1)):min(i*n_cols, length(input$population2))) {
           
           info <- summary_counts[[input$dataset2]][[paste0(input$population2[[j]], analysis)]]
-          title_plot <- paste0(names(which(all_populations == input$population2[[j]])), " (N = ", info$number_target[info$year == input$year2], " , Treated % = ", info$perc[info$year == input$year2], ")")
+          title_plot <- paste0(names(which(all_populations == input$population2[[j]])), " (N = ", info$number_target[info$year == input$year2], ", Treated % = ", info$perc[info$year == input$year2], ")")
           plot_location <- paste0("workingdirectory/output/",input$dataset2 ,"/",input$population2[[j]], analysis, "/sunburst_", input$dataset2, "_",input$population2[[j]], analysis, "_" ,input$year2,".html")
           
           cols_ <- append(cols_,list(column(width = floor(8/n_cols), offset = 0, tagList(tags$h4(title_plot), tags$iframe(seamless="seamless", src=plot_location, width=400, height=400, scrolling = "no", frameborder = "no")))));
@@ -185,7 +185,7 @@ server <- function(input, output, session) {
         for(j in (1+n_cols*(i-1)):min(i*n_cols, length(input$year2))) {
           
           info <- summary_counts[[input$dataset2]][[paste0(input$population2, analysis)]]
-          title_plot <- paste0(names(which(all_years == input$year2[[j]])), " (N = ", info$number_target[info$year == input$year2[[j]]], " , Treated % = ", info$perc[info$year == input$year2[[j]]], ")")
+          title_plot <- paste0(names(which(all_years == input$year2[[j]])), " (N = ", info$number_target[info$year == input$year2[[j]]], ", Treated % = ", info$perc[info$year == input$year2[[j]]], ")")
           plot_location <- paste0("workingdirectory/output/",input$dataset2, "/", input$population2, analysis, "/sunburst_", input$dataset2, "_",input$population2, analysis, "_" ,input$year2[[j]],".html")
           
           cols_ <- append(cols_,list(column(width = floor(8/n_cols), offset = 0, tagList(tags$h4(title_plot), tags$iframe(seamless="seamless", src=plot_location, width=400, height=400, scrolling = "no", frameborder = "no")))));
