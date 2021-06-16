@@ -441,9 +441,7 @@ transformDuration <- function(outputFolder, path, temp_path, maxPathLength, grou
   file$all_combinations[grepl("Other|\\+|\\&", file$event_cohort_name)] <- 1
   file$monotherapy[!grepl("Other|\\+|\\&", file$event_cohort_name)] <- 1
   
-  result_total_seq <- file[,.(drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("event_cohort_name", "total")]
-  result_total_seq$total <- NULL
-  
+  # Duration average per layer
   result_total_concept <- file[,.(event_cohort_name = "Total treated", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "total")]
   result_total_concept$total <- NULL
   
@@ -459,7 +457,23 @@ transformDuration <- function(outputFolder, path, temp_path, maxPathLength, grou
   result_monotherapy <- result_monotherapy[!is.na(monotherapy),]
   result_monotherapy$monotherapy <- NULL
   
-  results <- rbind(result, result_total_seq, result_total_concept, result_fixed_combinations, result_all_combinations, result_monotherapy)
+  # Duration average all layers 
+  result_total_seq <- file[,.(drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("event_cohort_name", "total")]
+  result_total_seq$total <- NULL
+  
+  results_total_treated <- file[,.(event_cohort_name = "Total treated", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("total")]
+  results_total_treated$total <- NULL
+  
+  results_total_fixed <- file[,.(event_cohort_name = "Fixed combinations", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("fixed_combinations")]
+  results_total_fixed$fixed_combinations <- NULL
+  
+  results_total_mono <- file[,.(event_cohort_name = "All combinations", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("all_combinations")]
+  results_total_mono$all_combinations <- NULL
+  
+  results_total_allcombi <- file[,.(event_cohort_name = "Monotherapy", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("monotherapy")]
+  results_total_allcombi$monotherapy <- NULL
+  
+  results <- rbind(result, result_total_concept, result_fixed_combinations, result_all_combinations, result_monotherapy, result_total_seq, results_total_treated, results_total_fixed, results_total_mono, results_total_allcombi)
   
   # Add missing groups
   cohorts <- readr::read_csv(paste(outputFolder, "/cohort.csv",sep=''), col_types = list("i", "c", "c", "c"))
