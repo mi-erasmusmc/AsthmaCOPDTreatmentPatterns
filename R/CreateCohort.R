@@ -204,10 +204,10 @@ createCohorts <- function(connection,
     write.csv(cohort_inclusion_result, file.path(outputFolder, "cohort_inclusion_result.csv"), row.names = FALSE)
     
     cohort_inclusion_stats <- extractFile(connection, "cohort_inclusion_stats", cohortDatabaseSchema, connectionDetails$dbms)
-    write.csv(cohort_inclusion, file.path(outputFolder, "cohort_inclusion_stats.csv"), row.names = FALSE)
+    write.csv(cohort_inclusion_stats, file.path(outputFolder, "cohort_inclusion_stats.csv"), row.names = FALSE)
     
     cohort_summary_stats <- extractFile(connection, "cohort_summary_stats", cohortDatabaseSchema, connectionDetails$dbms)
-    write.csv(cohort_inclusion, file.path(outputFolder, "cohort_summary_stats.csv"), row.names = FALSE)
+    write.csv(cohort_summary_stats, file.path(outputFolder, "cohort_summary_stats.csv"), row.names = FALSE)
   }
   
 }
