@@ -73,7 +73,7 @@ ui <- dashboardPage(
       ),
       conditionalPanel(
         condition = "input.tabs=='stepupdown'",
-        radioButtons("rules", label = "Transition after treatment layer", choices = list("GINA guidelines" = "guidelines", "Broad definition" = "generalized"), selected = "generalized")
+        radioButtons("rules", label = "Transition after treatment layer", choices = list("Guidelines" = "guidelines", "Broad definition" = "generalized"), selected = "generalized")
       )
     )
   ),
