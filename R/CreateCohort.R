@@ -161,7 +161,7 @@ createCohorts <- function(connection,
   # Compute counts of individual cohorts ids within target cohorts
   if(detailedCount) {
     # Import predefined list in database
-    all_drug_concepts <- as.data.frame(readr::read_csv("extras/Check drug classes/all_drug_concepts.csv", col_types = list("c", "i", "c")))
+    all_drug_concepts <- as.data.frame(readr::read_csv("inst/Settings/all_drug_concepts.csv", col_types = list("c", "i", "c")))
     
     DatabaseConnector::insertTable(connection = connection,
                                    tableName = paste0(cohortSchema,".all_drug_concepts"),
