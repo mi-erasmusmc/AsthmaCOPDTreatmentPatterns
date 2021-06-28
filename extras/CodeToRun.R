@@ -2,9 +2,6 @@
 # Study settings
 # ------------------------------------------------------------------------
 
-## Select database format (Format of 'Observational Medical Outcomes Partnership Common Data Model' = TRUE or 'Other' = FALSE)
-OMOP_CDM <- TRUE 
-
 ## Analysis settings
 debugSqlFile <- "treatment_patterns.dsql"
 cohortTable <- "treatment_patterns_cohorts"
@@ -18,49 +15,38 @@ runGenerateResults <- TRUE
 study_settings <- data.frame(readr::read_csv("inst/Settings/study_settings.csv", col_types = readr::cols()))
 study_settings <- study_settings[,c("param", "analysis1", "analysis2", "analysis3", "analysis4", "analysis5", "analysis6", "analysis7", "analysis8", "analysis9", "analysis10", "analysis11", "analysis12", "analysis13", "analysis14")]
 
-
 # ------------------------------------------------------------------------
-# If OMOP-CDM = TRUE -> enter all database credentials, ELSE enter database name
+# Enter all database credentials, ELSE enter database name
 # ------------------------------------------------------------------------
 
-if (OMOP_CDM) {
-  user <- 'todo'
-  password <- 'todo'
-  cdmDatabaseSchemaList <- 'todo'
-  cohortSchema <- 'todo'
-  oracleTempSchema <- NULL
-  databaseList <- 'todo' # name of the data source
-  
-  dbms <- 'todo'
-  server <- 'todo'
-  port <- 'todo'
-  
-  # Sys.setenv(DATABASECONNECTOR_JAR_FOLDER = 'todo')
-  
-  outputFolder <- paste0(getwd(),"/shiny/output")
-  cohortLocation <- NULL
-  
-  # Optional: specify where the temporary files will be created:
-  # options(andromedatempdir = "...")
-  
-  # Connect to the server
-  connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
-                                                                  server = server,
-                                                                  user = user,
-                                                                  password = password,
-                                                                  port = port)
-  
-  connection <- DatabaseConnector::connect(dbms = dbms,connectionDetails = connectionDetails)
-  
-} else {
-  connection <- NULL
-  connectionDetails <- NULL
-  cdmDatabaseSchema <- NULL
-  cohortDatabaseSchema <- NULL
-  
-  databaseName <- 'todo'
-  cohortLocation <- "inst/Settings/input_cohorts.csv"
-}
+user <- 'todo'
+password <- 'todo'
+cdmDatabaseSchemaList <- 'todo'
+cohortSchema <- 'todo'
+oracleTempSchema <- NULL
+databaseList <- 'todo' # name of the data source
+
+dbms <- 'todo'
+server <- 'todo'
+port <- 'todo'
+
+# Sys.setenv(DATABASECONNECTOR_JAR_FOLDER = 'todo')
+
+outputFolder <- paste0(getwd(),"/shiny/output")
+cohortLocation <- NULL
+
+# Optional: specify where the temporary files will be created:
+# options(andromedatempdir = "...")
+
+# Connect to the server
+connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
+                                                                server = server,
+                                                                user = user,
+                                                                password = password,
+                                                                port = port)
+
+connection <- DatabaseConnector::connect(dbms = dbms,connectionDetails = connectionDetails)
+
 
 # ------------------------------------------------------------------------
 # Run the study
@@ -68,12 +54,10 @@ if (OMOP_CDM) {
 
 for (sourceId in 1:length(cdmDatabaseSchemaList)) {
   
-  if (OMOP_CDM) {
-    cdmDatabaseSchema <- cdmDatabaseSchemaList[sourceId]
-    cohortDatabaseSchema <- cohortSchema
-    databaseName <- databaseList[sourceId]
-  }
-  
+  cdmDatabaseSchema <- cdmDatabaseSchemaList[sourceId]
+  cohortDatabaseSchema <- cohortSchema
+  databaseName <- databaseList[sourceId]
+
   databaseId <- databaseName
   print(paste("Executing against", databaseName))
   
@@ -81,7 +65,6 @@ for (sourceId in 1:length(cdmDatabaseSchemaList)) {
   
   time0 <- Sys.time()
   executeTreatmentPatterns(
-    OMOP_CDM = OMOP_CDM,
     connection = connection,
     connectionDetails = connectionDetails,
     cdmDatabaseSchema = cdmDatabaseSchema,
