@@ -14,7 +14,12 @@ addInfo <- function(item, infoId) {
 
 # Shiny ui function
 ui <- dashboardPage(
-  dashboardHeader(title = "Pathways Results"),
+  dashboardHeader(title = "Pathways Results",
+                  tags$li(div(img(src = 'logo.png',
+                                  title = "OHDSI PLP", height = "40px", width = "40px"),
+                              style = "padding-top:0px; padding-bottom:0px;"),
+                          class = "dropdown")
+                  ),
   dashboardSidebar(
     sidebarMenu(
       id = "tabs",

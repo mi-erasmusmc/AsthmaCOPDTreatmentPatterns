@@ -23,7 +23,8 @@ all_years <- list("Entire study period" = "all",
                   "Index year 2014" = "2014", 
                   "Index year 2015" = "2015",
                   "Index year 2016" = "2016",
-                  "Index year 2017" = "2017")
+                  "Index year 2017" = "2017",
+                  "Index year 2018" = "2018")
 
 all_populations <- list("Asthma > 18"= "asthma",
                         "COPD > 40" = "copd",
@@ -73,7 +74,7 @@ colors <- list("stopped" = "#EBDEF0", # purple
 orderRows <- c("Number of persons", "Male" , "Age", "Charlson comorbidity index score",  "Anxiety", "Atopic disorders",
                "Allergic rhinitis", "Cerebrovascular disease",  "Chronic rhinosinusitis" , "Depressive disorder", "Diabetes mellitus", "Gastroesophageal reflux disease" ,  
                 "Heartfailure", "Hypertensive disorder", "Ischemic heart disease" , "Lower respiratory tract infections",
-                 "Nasal polyposis", "Obesity")   
+                 "Nasal polyposis", "Obesity", "Smoking")   
 
 # Order drug classes
 orderClasses <- c("ICS", "LABA", "LABA&ICS", "LABA&LAMA", "LABA&LAMA&ICS", "LAMA", "LTRA", "SABA", "SABA&SAMA", "SAMA", "Systemic glucocorticoids (acute)", "Systemic glucocorticoids (therapy)", "Xanthines", "Anti IgE", "Anti IL4R", "Anti IL5(R)", "Systemic B2 agonist", "PDE4", "Other", "Monotherapy", "Fixed combinations","All combinations", "Total treated")
