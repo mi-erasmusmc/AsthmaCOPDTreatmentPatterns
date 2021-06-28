@@ -7,10 +7,10 @@ This R package contains the resources for performing the treatment pathway analy
 Today, many guidelines are available that provide clinical recommendations on asthma or COPD care with as ultimate goal to improve outcomes of patients. There is a lack of knowledge how patients newly diagnosed with asthma or COPD are treated in real-world. We give insight in treatment patterns of newly diagnosed patients across countries to help understand and address current research gaps in clinical care by utilizing the powerful analytical tools developed by the Observational Health Data Sciences and Informatics (OHDSI) community. 
 
 *Methods*: 
-This study will describe the treatment pathways of patients diagnosed with asthma, COPD or ACO. For each of the cohorts, a sunburst diagram (and more) is produced to describe the proportion of the respiratory drugs for each treatment sequence observed in the target population. 
+This study will describe the treatment pathways of patients diagnosed with asthma, COPD or Asthma-COPD Overlap (ACO). For each of the cohorts, a sunburst diagram (and more) is produced to describe the proportion of the respiratory drugs for each treatment sequence observed in the target population. 
 
-## Installation/Execution
-If you like to execute this study package against an OMOP-CDM follow these instructions:
+## Installation/Study Execution
+If you like to execute this study package against an OMOP-CDM database follow these instructions:
 
 1. Download and open the R package using RStudio. 
 2. Load the renv project environment to ensure that you have all required R packages.
@@ -22,3 +22,10 @@ If you like to execute this study package against an OMOP-CDM follow these instr
 6. The results are located in '~/shiny/output'.
 7. Run the Shiny App for an interactive visualization of the results.
 8. Share the results in the automatically generated zip folder.
+
+
+## Shiny Application
+Results explorer: (todo: link to be added).
+
+
+
