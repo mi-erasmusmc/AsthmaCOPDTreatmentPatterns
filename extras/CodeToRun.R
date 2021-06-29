@@ -73,7 +73,6 @@ for (sourceId in 1:length(cdmDatabaseSchemaList)) {
     outputFolder = outputFolderDB,
     databaseId = databaseId,
     databaseName = databaseName,
-    cohortLocation = cohortLocation,
     runCreateCohorts = runCreateCohorts,
     runCohortCharacterization = runCohortCharacterization,
     runConstructPathways = runConstructPathways,

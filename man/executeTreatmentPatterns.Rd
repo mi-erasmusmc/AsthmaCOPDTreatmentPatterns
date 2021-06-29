@@ -5,7 +5,6 @@
 \title{This is the main function which runs all different parts of the treatment pathways analysis.}
 \usage{
 executeTreatmentPatterns(
-  OMOP_CDM = TRUE,
   connection = NULL,
   connectionDetails = NULL,
   cdmDatabaseSchema,
@@ -14,7 +13,6 @@ executeTreatmentPatterns(
   outputFolder,
   databaseId = "Unknown",
   databaseName = "Unknown",
-  cohortLocation = "inst/Settings/input_cohorts.csv",
   runCreateCohorts = TRUE,
   runCohortCharacterization = FALSE,
   runConstructPathways = TRUE,
@@ -29,7 +27,7 @@ executeTreatmentPatterns(
 \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
 DatabaseConnector package.}
 
-\item{cdmDatabaseSchema}{Schema name where your patient-level data resides if OMOP-CDM = TRUE.
+\item{cdmDatabaseSchema}{Schema name where your patient-level data resides.
 Note that for SQL Server, this should include both the database and
 schema name, for example 'cdm_data.dbo'.}
 
@@ -48,8 +46,6 @@ study.}
 
 \item{databaseName}{Name of the database that will appear in the results.}
 
-\item{cohortLocation}{Location where cohorts are saved if OMOP-CDM = FALSE.}
-
 \item{runCreateCohorts}{Setting to run part of the analysis where cohorts are created.}
 
 \item{runCohortCharacterization}{Setting to run part of the analysis where characterization of target cohorts is done.}
@@ -59,8 +55,6 @@ study.}
 \item{runGenerateResults}{Setting to run part of the analysis where final result files and plots are generated.}
 
 \item{study_settings}{Object that contains all study settings inputted by the user.}
-
-\item{OMOP-CDM}{Format of 'Observational Medical Outcomes Partnership Common Data Model' = TRUE or 'Other' = FALSE}
 }
 \description{
 This is the main function which runs all different parts of the treatment pathways analysis.
