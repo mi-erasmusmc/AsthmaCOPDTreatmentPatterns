@@ -30,7 +30,7 @@ all_populations <- list("Asthma > 18"= "asthma",
                         "COPD > 40" = "copd",
                         "ACO > 40" = "aco",
                         "Asthma 6-17" = "asthma6plus",
-                        "Asthma < 5" = "asthma6min")
+                        "Asthma <= 5" = "asthma6min")
 
 included_databases <- list.dirs(paste0(local, "output/"), recursive = FALSE, full.names = FALSE) 
 names(included_databases) <- included_databases
