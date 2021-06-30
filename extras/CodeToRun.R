@@ -58,7 +58,6 @@ for (sourceId in 1:length(cdmDatabaseSchemaList)) {
   cohortDatabaseSchema <- cohortSchema
   databaseName <- databaseList[sourceId]
 
-  databaseId <- databaseName
   print(paste("Executing against", databaseName))
   
   outputFolderDB <- paste0(outputFolder, "/", databaseName)
@@ -71,7 +70,6 @@ for (sourceId in 1:length(cdmDatabaseSchemaList)) {
     cohortDatabaseSchema = cohortDatabaseSchema,
     cohortTable = paste0(cohortTable, "_", databaseName),
     outputFolder = outputFolderDB,
-    databaseId = databaseId,
     databaseName = databaseName,
     runCreateCohorts = runCreateCohorts,
     runCohortCharacterization = runCohortCharacterization,

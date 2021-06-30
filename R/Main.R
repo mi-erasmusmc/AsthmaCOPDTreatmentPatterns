@@ -16,7 +16,6 @@
 #'                             study.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/).
-#' @param databaseId           Unique identifier for database (can be the same as databaseName).
 #' @param databaseName         Name of the database that will appear in the results.
 #' @param runCreateCohorts     Setting to run part of the analysis where cohorts are created.
 #' @param runCohortCharacterization   Setting to run part of the analysis where characterization of target cohorts is done.      
@@ -31,7 +30,6 @@ executeTreatmentPatterns <- function(connection = NULL,
                                      cohortDatabaseSchema = cdmDatabaseSchema,
                                      cohortTable = "cohort",
                                      outputFolder,
-                                     databaseId = "Unknown",
                                      databaseName = "Unknown",
                                      runCreateCohorts = TRUE,
                                      runCohortCharacterization = FALSE,
@@ -87,7 +85,7 @@ executeTreatmentPatterns <- function(connection = NULL,
                            cohortDatabaseSchema = cohortDatabaseSchema,
                            cohortTable = cohortTable,
                            outputFolder = outputFolder,
-                           databaseId = databaseId,
+                           databaseId = databaseName,
                            targetCohortIds = targetCohortIds,
                            minCellCount = minCellCount)
   }
