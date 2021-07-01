@@ -107,14 +107,14 @@ ui <- dashboardPage(
         br(),
         p(
           "This web-based application provides an interactive platform to explore the results of the AsthmaCOPDTreatmentPatterns R Package. 
-          This R package contains the resources for performing the treatment pathway analysis of the study assessing respiratory drug use in patients with asthma and/or COPD, as described in detail in the protocol as registered at ENCePP website under registration number (todo: to be added)."
+          This R package contains the resources for performing the treatment pathway analysis of the study assessing respiratory drug use in patients with asthma and/or COPD, as described in detail in the protocol as registered at ENCePP website under registration number EUPAS41726."
         ),
-        # HTML("<li>R study package: <a href=\"https://github.com/AniekMarkus/RespiratoryDrugPathways\">GitHub</a></li>"),
-        # HTML("<li>The study is registered: <a href=\"http://www.encepp.eu/encepp/viewResource.htm?id=33398\">EU PASS Register</a></li>"),
+        HTML("<li>R study package: <a href=\"https://github.com/mi-erasmusmc/AsthmaCOPDTreatmentPatterns\">GitHub</a></li>"),
+        HTML("<li>The study is registered: <a href=\"http://www.encepp.eu/encepp/viewResource.htm?id=41727\">EU PASS Register</a></li>"),
         h3("Background"),
         p("Today, many guidelines are available that provide clinical recommendations on asthma or COPD care with as ultimate goal to improve outcomes of patients. There is a lack of knowledge how patients newly diagnosed with asthma or COPD are treated in real-world. We give insight in treatment patterns of newly diagnosed patients across countries to help understand and address current research gaps in clinical care by utilizing the powerful analytical tools developed by the Observational Health Data Sciences and Informatics (OHDSI) community."),
         h3("Methods"),
-        p("This study will describe the treatment pathways of patients diagnosed with asthma, COPD or ACO. For each of the cohorts, a sunburst diagram (and more) is produced to describe the proportion of the respiratory drugs for each treatment sequence observed in the target population."),
+        p("This study will describe the treatment pathways of patients diagnosed with asthma, COPD or Asthma-COPD Overlap (ACO). For each of the cohorts, a sunburst diagram (and more) is produced to describe the proportion of the respiratory drugs for each treatment sequence observed in the target population."),
         h3("Development Status"),
         p("The results presented in this application are not final yet and should be treated as such (no definite conclusions can be drawn based upon this and the results should not be distributed further).")
       ),

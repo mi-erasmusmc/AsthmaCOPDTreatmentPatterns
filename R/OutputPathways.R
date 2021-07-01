@@ -464,10 +464,8 @@ transformDuration <- function(outputFolder, path, temp_path, maxPathLength, grou
   results_total_fixed$fixed_combinations <- NULL
   
   results_total_mono <- file[all_combinations == 1,.(event_cohort_name = "All combinations", drug_seq = "Overall", AVG_DURATION = round(mean(duration_era),2), COUNT = .N)]
-  results_total_mono$all_combinations <- NULL
-  
+
   results_total_allcombi <- file[monotherapy == 1,.(event_cohort_name = "Monotherapy", drug_seq = "Overall", AVG_DURATION = round(mean(duration_era),2), COUNT = .N)]
-  results_total_allcombi$monotherapy <- NULL
   
   results <- rbind(result, result_total_concept, result_fixed_combinations, result_all_combinations, result_monotherapy, result_total_seq, results_total_treated, results_total_fixed, results_total_mono, results_total_allcombi)
   

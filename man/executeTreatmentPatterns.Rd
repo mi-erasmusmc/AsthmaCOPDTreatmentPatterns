@@ -11,13 +11,12 @@ executeTreatmentPatterns(
   cohortDatabaseSchema = cdmDatabaseSchema,
   cohortTable = "cohort",
   outputFolder,
-  databaseId = "Unknown",
   databaseName = "Unknown",
   runCreateCohorts = TRUE,
   runCohortCharacterization = FALSE,
   runConstructPathways = TRUE,
   runGenerateResults = TRUE,
-  study_settings = study_settings
+  study_settings
 )
 }
 \arguments{
@@ -41,8 +40,6 @@ study.}
 
 \item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
 (/).}
-
-\item{databaseId}{Unique identifier for database (can be the same as databaseName).}
 
 \item{databaseName}{Name of the database that will appear in the results.}
 

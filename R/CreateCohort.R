@@ -1,12 +1,12 @@
 
 #' This function will create the target and event cohorts following the definitions included in
-#' this package if OMOP-CDM = TRUE.
+#' this package .
 #'
 #' @param connection           Connection to database server.
 #' @param connectionDetails    An object of type \code{connectionDetails} as created using the
 #'                             \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
 #'                             DatabaseConnector package.
-#' @param cdmDatabaseSchema    Schema name where your patient-level data resides if OMOP-CDM = TRUE.
+#' @param cdmDatabaseSchema    Schema name where your patient-level data resides.
 #'                             Note that for SQL Server, this should include both the database and
 #'                             schema name, for example 'cdm_data.dbo'.
 #' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
@@ -17,6 +17,13 @@
 #'                             study.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/).
+#' @param loadCohorts          Setting to load cohorts from ATLAS.
+#' @param baseUrl              The base URL for the WebApi instance, for example: "http://server.org:80/WebAPI".
+#'                             Note, there is no trailing '/'. If trailing '/' is used, you may receive an error.   
+#' @param generateCohorts      Setting to extract specified target/event cohorts from database.
+#' @param detailedCount        Setting to count which specific concepts occur in database.
+#' @param minCellCount         Minimum number of persons with a specific treatment pathway for the pathway to be included in analysis.
+#' @param flowChart            Setting to return numbers for flowchart with inclusion/exclusion criteria.     
 #' @export
 
 createCohorts <- function(connection,

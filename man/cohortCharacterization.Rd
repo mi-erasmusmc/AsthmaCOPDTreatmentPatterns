@@ -23,7 +23,7 @@ cohortCharacterization(
 createConnectionDetails function in the
 DatabaseConnector package.}
 
-\item{cdmDatabaseSchema}{Schema name where your patient-level data resides if OMOP-CDM = TRUE.
+\item{cdmDatabaseSchema}{Schema name where your patient-level data resides.
 Note that for SQL Server, this should include both the database and
 schema name, for example 'cdm_data.dbo'.}
 

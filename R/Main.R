@@ -35,7 +35,7 @@ executeTreatmentPatterns <- function(connection = NULL,
                                      runCohortCharacterization = FALSE,
                                      runConstructPathways = TRUE,
                                      runGenerateResults = TRUE,
-                                     study_settings = study_settings) {
+                                     study_settings) {
   # Input checks
   if (!file.exists(outputFolder))
     dir.create(outputFolder, recursive = TRUE)

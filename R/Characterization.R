@@ -5,7 +5,7 @@
 #' @param connectionDetails An object of type \code{connectionDetails} as created using the
 #'                             createConnectionDetails function in the
 #'                             DatabaseConnector package.
-#' @param cdmDatabaseSchema   Schema name where your patient-level data resides if OMOP-CDM = TRUE.
+#' @param cdmDatabaseSchema   Schema name where your patient-level data resides.
 #'                             Note that for SQL Server, this should include both the database and
 #'                             schema name, for example 'cdm_data.dbo'.
 #' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
