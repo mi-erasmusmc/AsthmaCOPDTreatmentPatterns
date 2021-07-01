@@ -49,7 +49,7 @@ generateResults <- function(study_settings, databaseName, studyName, outputFolde
       transformDuration(outputFolder = outputFolder, path = path, temp_path = temp_path, maxPathLength = maxPathLength, groupCombinations = TRUE, minCellCount = minCellCount)
       
       # Save (censored) results file_noyear and file_year
-      saveTreatmentSequence(file_noyear = file_noyear, file_withyear = file_withyear, path = path, groupCombinations = groupCombinations, minCellCount = minCellCount, minCellMethod = minCellMethod)
+      saveTreatmentSequence(file_noyear = file_noyear, file_withyear = file_withyear, path = path, temp_path = temp_path, groupCombinations = groupCombinations, minCellCount = minCellCount, minCellMethod = minCellMethod)
       
       file_noyear <- as.data.table(readr::read_csv(paste(path,"_file_noyear.csv",sep=''), col_types = readr::cols()))
       file_withyear <- as.data.table(readr::read_csv(paste(path,"_file_withyear.csv",sep=''), col_types = readr::cols()))
@@ -71,7 +71,7 @@ generateResults <- function(study_settings, databaseName, studyName, outputFolde
 # Input:
 # studyName Name for the study corresponding to the current settings.
 # path Path to the output folder including data specific file name.
-# temp_path Path to aggregated treatment pathways file of the target cohort in different rows.
+# temp_path Path to temporary output files.
 # maxPathLength Maximum number of steps included in treatment pathway (max 5).
 # minCellCount Minimum number of persons with a specific treatment pathway for the pathway to be included in analysis.
 #
@@ -436,41 +436,37 @@ transformDuration <- function(outputFolder, path, temp_path, maxPathLength, grou
   result <- file[,.(AVG_DURATION=round(mean(duration_era),3), COUNT = .N), by = c("event_cohort_name", "drug_seq")][order(event_cohort_name, drug_seq)]
   
   # Add column for total treated, fixed combinations, all combinations
-  file$total <- 1
   file$fixed_combinations[grepl("\\&", file$event_cohort_name)] <- 1
   file$all_combinations[grepl("Other|\\+|\\&", file$event_cohort_name)] <- 1
   file$monotherapy[!grepl("Other|\\+|\\&", file$event_cohort_name)] <- 1
   
   # Duration average per layer
-  result_total_concept <- file[,.(event_cohort_name = "Total treated", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "total")]
-  result_total_concept$total <- NULL
+  result_total_concept <- file[,.(event_cohort_name = "Total treated", AVG_DURATION = round(mean(duration_era),2), COUNT = .N), by = c("drug_seq")]
   
-  result_fixed_combinations <- file[,.(event_cohort_name = "Fixed combinations", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "fixed_combinations")]
+  result_fixed_combinations <- file[,.(event_cohort_name = "Fixed combinations", AVG_DURATION = round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "fixed_combinations")]
   result_fixed_combinations <- result_fixed_combinations[!is.na(fixed_combinations),]
   result_fixed_combinations$fixed_combinations <- NULL
   
-  result_all_combinations <- file[,.(event_cohort_name = "All combinations", AVG_DURATION=round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "all_combinations")]
+  result_all_combinations <- file[,.(event_cohort_name = "All combinations", AVG_DURATION = round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "all_combinations")]
   result_all_combinations <- result_all_combinations[!is.na(all_combinations),]
   result_all_combinations$all_combinations <- NULL
   
-  result_monotherapy <- file[,.(event_cohort_name = "Monotherapy", AVG_DURATION=round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "monotherapy")]
+  result_monotherapy <- file[,.(event_cohort_name = "Monotherapy", AVG_DURATION = round(mean(duration_era),2), COUNT = .N), by = c("drug_seq", "monotherapy")]
   result_monotherapy <- result_monotherapy[!is.na(monotherapy),]
   result_monotherapy$monotherapy <- NULL
   
   # Duration average all layers 
-  result_total_seq <- file[,.(drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("event_cohort_name", "total")]
-  result_total_seq$total <- NULL
+  result_total_seq <- file[,.(drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("event_cohort_name")]
   
-  results_total_treated <- file[,.(event_cohort_name = "Total treated", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("total")]
-  results_total_treated$total <- NULL
+  results_total_treated <- file[,.(event_cohort_name = "Total treated", drug_seq = "Overall", AVG_DURATION = round(mean(duration_era),2), COUNT = .N)]
   
-  results_total_fixed <- file[,.(event_cohort_name = "Fixed combinations", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("fixed_combinations")]
+  results_total_fixed <- file[fixed_combinations == 1,.(event_cohort_name = "Fixed combinations", drug_seq = "Overall", AVG_DURATION = round(mean(duration_era),2), COUNT = .N)]
   results_total_fixed$fixed_combinations <- NULL
   
-  results_total_mono <- file[,.(event_cohort_name = "All combinations", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("all_combinations")]
+  results_total_mono <- file[all_combinations == 1,.(event_cohort_name = "All combinations", drug_seq = "Overall", AVG_DURATION = round(mean(duration_era),2), COUNT = .N)]
   results_total_mono$all_combinations <- NULL
   
-  results_total_allcombi <- file[,.(event_cohort_name = "Monotherapy", drug_seq = "Overall", AVG_DURATION= round(mean(duration_era),2), COUNT = .N), by = c("monotherapy")]
+  results_total_allcombi <- file[monotherapy == 1,.(event_cohort_name = "Monotherapy", drug_seq = "Overall", AVG_DURATION = round(mean(duration_era),2), COUNT = .N)]
   results_total_allcombi$monotherapy <- NULL
   
   results <- rbind(result, result_total_concept, result_fixed_combinations, result_all_combinations, result_monotherapy, result_total_seq, results_total_treated, results_total_fixed, results_total_mono, results_total_allcombi)
@@ -497,10 +493,11 @@ transformDuration <- function(outputFolder, path, temp_path, maxPathLength, grou
 # file_noyear Dataframe with aggregated treatment pathways of the target cohort in different rows (unique pathways, with frequency).
 # file_withyear Idem, but split over index_year.
 # path Path to the output folder including data specific file name.
+# temp_path Path to temporary output files.
 # groupCombinations Select to group all non-fixed combinations in one category 'other’ in the sunburst plot.
 # minCellCount Minimum number of persons with a specific treatment pathway for the pathway to be included in analysis.
 # minCellMethod Select to completely remove / sequentially adjust (by removing last step as often as necessary) treatment pathways below minCellCount.
-saveTreatmentSequence <- function(file_noyear, file_withyear, path, groupCombinations, minCellCount, minCellMethod) {
+saveTreatmentSequence <- function(file_noyear, file_withyear, path, temp_path, groupCombinations, minCellCount, minCellMethod) {
   
   # Group non-fixed combinations in one group according to groupCobinations
   file_noyear <- groupInfrequentCombinations(file_noyear, groupCombinations)
@@ -544,7 +541,7 @@ saveTreatmentSequence <- function(file_noyear, file_withyear, path, groupCombina
   ParallelLogger::logInfo(paste("Remove ", sum(file_withyear$freq < minCellCount), " paths with too low frequency (with year)"))
   file_withyear <- file_withyear[freq >= minCellCount,]
   
-  summary_counts <- readr::read_csv(paste(path,"_summary_cnt.csv",sep=''), col_types = list("c", "i"))
+  summary_counts <- readr::read_csv(paste(temp_path,"_summary_cnt.csv",sep=''), col_types = list("c", "i"))
   summary_counts <- rbind(summary_counts, c("Total number of pathways (after minCellCount)", sum(file_noyear$freq)))
   
   for (y in unique(file_withyear$index_year)) {
