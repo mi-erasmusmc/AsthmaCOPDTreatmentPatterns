@@ -370,7 +370,41 @@ server <- function(input, output, session) {
   })
   
   # Step up/down tab
-  output$stepupdownpie <- renderUI({
+  output$tableStepUpDownTitle <- renderText({"Table with percentage of patients who discontinue, switch, or augment/reduce treatment." })
+  
+  output$tableStepUpDown <- renderDataTable({
+    
+    # Get the data
+    data <- data.frame()
+    
+    for (d in input$dataset5) {
+      data <- rbind(data, cbind(stepupdown[[d]][[input$population345]][[input$rules]], d))
+    }
+    
+    data <- as.data.table(data)
+    data <- data[layer == input$transition5,]
+    
+    data$group[data$group == "step_up_broad"] <- "step_up"
+    data$group[data$group == "step_down_broad"] <- "step_down"
+    data$group[data$group == "switching_broad"] <- "switching"
+    data$group[data$group == "acute_exacerbation + step_up"] <- "acute_exacerbation"
+    data$group[data$group == "end_of_acute_exacerbation + step_up"] <- "end_of_acute_exacerbation"
+    
+    output <- data[,sum(perc), by = .(group, d)]
+    colnames(output) <- c("Label", "dataset", "perc")
+  
+    output$group <- sapply(output$group, function(c) unlist(labels_stepupdown[c]))
+    
+    # Columns different databases (rows different characteristics)
+    table <- reshape2::dcast(output, Label ~ dataset, value.var = "perc")
+    
+    return(table)
+  }, options = list(pageLength = 7))
+  
+  
+  output$pieStepUpDownTitle <- renderText({"Pie chart with percentage of patients who discontinue, switch, or augment/reduce treatment." })
+  
+  output$pieStepUpDown <- renderUI({
     
     # Get the data
     data <- data.frame()

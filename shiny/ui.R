@@ -180,8 +180,22 @@ ui <- dashboardPage(
       ),
       
       tabItem(tabName = "stepupdown",
-              box(width = 12,
-                  uiOutput("stepupdownpie")
+              tabsetPanel(
+                id = "resultStepUpDownPanel",
+                tabPanel(
+                  "Tables",
+                  br(),
+                  textOutput("tableStepUpDownTitle"),
+                  br(),
+                  dataTableOutput("tableStepUpDown")
+                ),
+                tabPanel(
+                  "Figures",
+                  br(),
+                  textOutput("pieStepUpDownTitle"),
+                  br(),
+                  uiOutput("pieStepUpDown")
+                )
               )
       )
     )
