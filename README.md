@@ -25,7 +25,7 @@ If you like to execute this study package against an OMOP-CDM database follow th
 
 
 ## Shiny Application
-Results explorer: (todo: link to be added).
+Results explorer: https://aniekmarkus.shinyapps.io/AsthmaCOPDTreatmentPatterns/.
 
 
 

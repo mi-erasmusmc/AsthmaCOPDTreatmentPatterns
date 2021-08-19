@@ -399,7 +399,7 @@ server <- function(input, output, session) {
     table <- reshape2::dcast(output, Label ~ dataset, value.var = "perc")
     
     return(table)
-  }, options = list(pageLength = 7))
+  }, options = list(pageLength = 8))
   
   
   output$pieStepUpDownTitle <- renderText({"Pie chart with percentage of patients who discontinue, switch, or augment/reduce treatment." })
