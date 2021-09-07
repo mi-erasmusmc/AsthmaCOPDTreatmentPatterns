@@ -1,7 +1,7 @@
 Package: AsthmaCOPDTreatmentPatterns
 Type: Package
 Title: A package to analyse real-world treatment patterns for patients with asthma, COPD and Asthma-COPD Overlap.
-Version: 0.3.0
+Version: 0.3.1
 Author: Aniek F Markus 
 Maintainer: Aniek F Markus <a.markus@erasmusmc.nl>
 Description: This package gives insight in treatment patterns, the following tasks are performed sequentially:
