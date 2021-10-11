@@ -111,10 +111,10 @@ for (d in included_databases) {
     # Load summary counts
     try({file <- read.csv(paste0(local, "output/", d, "/", p, "/",d , "_", p, "_summary_cnt.csv"))
     transformed_file <- data.table(year = character(), number_target = integer(), number_pathways = integer())
-    transformed_file <- rbind(transformed_file, list("all", file$N[file$index_year == "Number of persons in target cohort NA"], file$N[file$index_year == "Total number of pathways (after minCellCount)"]))
+    transformed_file <- rbind(transformed_file, list("all", file$N[file$index_year == "Number of persons in target cohort NA"], file$N[file$index_year == "Number of pathways (before minCellCount) in NA"]))
     
     for (y in all_years[-c(1)]) {
-      try(transformed_file <- rbind(transformed_file, list(y, file$N[file$index_year == paste0("Number of persons in target cohort ", y)], file$N[file$index_year == paste0("Number of pathways (after minCellCount) in ", y)])), silent = TRUE)
+      try(transformed_file <- rbind(transformed_file, list(y, file$N[file$index_year == paste0("Number of persons in target cohort ", y)], file$N[file$index_year == paste0("Number of pathways (before minCellCount) in ", y)])), silent = TRUE)
     }
     
     transformed_file$perc <- round(transformed_file$number_pathways * 100.0 / transformed_file$number_target,1)
