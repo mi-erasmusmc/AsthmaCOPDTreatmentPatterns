@@ -182,7 +182,7 @@ createCohorts <- function(connection,
     sql <- loadRenderTranslateSql(sql = "CountPredefinedDrugConcepts.sql",
                                   dbms = connectionDetails$dbms,
                                   oracleTempSchema = oracleTempSchema,
-                                  cdmDatabaseSchema = cdmDatabaseSchemaList[1],
+                                  cdmDatabaseSchema = cdmDatabaseSchema,
                                   resultsSchema=cohortSchema,
                                   cohortTable = cohortTable,
                                   targetCohortIds = targetCohortIds)
