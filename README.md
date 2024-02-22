@@ -32,7 +32,7 @@ Optional: Load the renv project environment to ensure that you have all required
 7. Share the results in the automatically generated zip folder.
 
 ## Shiny Application
-Results explorer: [https://aniekmarkus.shinyapps.io/AsthmaCOPDTreatmentPatterns/](https://mi-erasmusmc.shinyapps.io/AsthmaCOPDTreatmentPatterns/)https://mi-erasmusmc.shinyapps.io/AsthmaCOPDTreatmentPatterns/.
+Results explorer: [https://mi-erasmusmc.shinyapps.io/AsthmaCOPDTreatmentPatterns/](https://mi-erasmusmc.shinyapps.io/AsthmaCOPDTreatmentPatterns/).
 
 
 
